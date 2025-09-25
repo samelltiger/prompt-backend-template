@@ -11,7 +11,7 @@ server:
 # 新API服务配置
 new_api:
   # 新API服务的域名或地址
-  domain: "http://192.168.0.106:8020"
+  domain: "http://192.168.0.1:5000"
   # 管理员API密钥，用于访问受保护的接口
   admin_key: "sk-3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
@@ -19,16 +19,16 @@ new_api:
 database:
   # 网关服务数据库连接字符串（当前接口调用层）
   # 格式：用户名:密码@tcp(主机:端口)/数据库名?参数
-  gateway_dsn: "root:4Mxxxxxxxxxxxxx3FR@tcp(192.168.0.110:3306)/nano_banana?charset=utf8mb4&parseTime=True&loc=Local"
+  gateway_dsn: "root:4Mxxxxxxxxxxxxx3FR@tcp(192.168.0.1:3306)/nano_banana?charset=utf8mb4&parseTime=True&loc=Local"
   
   # 新API原始数据库连接字符串（只读访问）
   # 用于访问新API的原始数据，建议配置只读权限
-  new_api_dsn: "root:4MxxxxxxxxxxxFR@tcp(192.168.0.110:3306)/nano_banana?charset=utf8mb4&parseTime=True&loc=Local"
+  new_api_dsn: "root:4MxxxxxxxxxxxFR@tcp(192.168.0.1:3306)/nano_banana?charset=utf8mb4&parseTime=True&loc=Local"
 
 # Redis缓存配置
 redis:
   # Redis服务器地址和端口
-  addr: "192.168.0.110:6379"
+  addr: "192.168.0.1:6379"
   # Redis认证密码
   password: "6xxxxxxxxu"
   # Redis数据库编号
@@ -75,7 +75,7 @@ oss:
   # 阿里云OSS配置，在阿里云控制台里获取
   aliyun:
     # 阿里云访问密钥ID
-    SZ_ALIYUN_ACCESS_ID: "LTAI5tLycAKTsiHNGWhvpK79"
+    SZ_ALIYUN_ACCESS_ID: "LTAxxxxxxxxxxxxxxxxxxxx"
     # 阿里云访问密钥
     SZ_ALIYUN_ACCESS_KEY: "anxxxxxAI6p"
     # OSS存储桶名称
