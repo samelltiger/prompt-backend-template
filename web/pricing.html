@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Key 管理系统 - 价格</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="logo">API Key 管理系统</a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="pricing.html" class="active">价格</a></li>
+        <li><a href="status.html">状态</a></li>
+        <li><a href="redeem.html">兑换码</a></li>
+      </ul>
+      <div id="login-section">
+        <form id="api-key-form" class="form-inline">
+          <input type="text" id="api-key-input" placeholder="输入 API Key" class="form-control">
+          <button type="submit" class="btn btn-primary">绑定</button>
+        </form>
+      </div>
+      <div id="user-section" class="hidden">
+        <span id="user-api-key"></span>
+        <button id="logout-btn" class="btn btn-danger">登出</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">模型价格</h2>
+      </div>
+      <div class="search-container">
+        <input type="text" id="model-search" class="search-input" placeholder="搜索模型名称...">
+      </div>
+      <div id="pricing-loading" class="loading">
+        <div class="loading-spinner"></div>
+      </div>
+      <div id="pricing-content" class="hidden">
+        <table>
+          <thead>
+            <tr>
+              <th>可用性</th>
+              <th>模型名称</th>
+              <th>计费类型</th>
+              <th>倍率</th>
+              <th>模型价格</th>
+            </tr>
+          </thead>
+          <tbody id="pricing-table-body">
+            <!-- 价格数据将通过 JavaScript 填充 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/pricing.js"></script>
+</body>
+</html>

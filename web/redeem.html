@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Key 管理系统 - 兑换码</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">API Key 管理系统</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="status.html">状态</a></li>
+                <li><a href="redeem.html" class="active">兑换码</a></li>
+            </ul>
+            <div id="login-section">
+                <form id="api-key-form" class="form-inline">
+                    <input type="text" id="api-key-input" placeholder="输入 API Key" class="form-control">
+                    <button type="submit" class="btn btn-primary">绑定</button>
+                </form>
+            </div>
+            <div id="user-section" class="hidden">
+                <span id="user-api-key"></span>
+                <button id="logout-btn" class="btn btn-danger">登出</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="not-logged-in" class="card">
+            <div class="card-header">
+                <h2 class="card-title">请先绑定 API Key</h2>
+            </div>
+            <div class="card-body">
+                <p>您需要先绑定 API Key 才能使用兑换码功能。</p>
+            </div>
+        </div>
+
+        <div id="logged-in" class="hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">兑换码</h2>
+                </div>
+                <div class="card-body">
+                    <div id="redeem-result" class="alert hidden"></div>
+
+                    <form id="redeem-form">
+                        <div class="form-group">
+                            <label for="redeem-code">兑换码</label>
+                            <input type="text" id="redeem-code" class="form-control" placeholder="请输入兑换码">
+                        </div>
+                        <button type="button" id="check-btn" class="btn btn-primary">查询</button>
+                        <button type="submit" class="btn btn-success">兑换</button>
+                    </form>
+
+                    <div id="code-info" class="hidden">
+                        <h3>兑换码信息</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-label">额度</div>
+                                <div class="stat-value" id="code-quota">--</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">美元等值</div>
+                                <div class="stat-value" id="code-amount">--</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/redeem.js"></script>
+</body>
+
+</html>

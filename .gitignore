@@ -1,0 +1,4 @@
+.DS_Store
+internal/api/.DS_Store
+main
+config/config.yaml

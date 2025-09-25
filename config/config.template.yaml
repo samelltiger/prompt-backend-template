@@ -1,0 +1,110 @@
+# 应用配置文件
+# 所有敏感信息应通过环境变量或密钥管理服务获取，不要直接硬编码在配置文件中
+
+# 服务器配置
+server:
+  # 服务监听端口
+  port: 9701
+  # 服务监听地址，"0.0.0.0"表示监听所有网络接口
+  host: "0.0.0.0"
+
+# 新API服务配置
+new_api:
+  # 新API服务的域名或地址
+  domain: "http://192.168.0.106:8020"
+  # 管理员API密钥，用于访问受保护的接口
+  admin_key: "sk-3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# 数据库配置
+database:
+  # 网关服务数据库连接字符串（当前接口调用层）
+  # 格式：用户名:密码@tcp(主机:端口)/数据库名?参数
+  gateway_dsn: "root:4Mxxxxxxxxxxxxx3FR@tcp(192.168.0.110:3306)/nano_banana?charset=utf8mb4&parseTime=True&loc=Local"
+  
+  # 新API原始数据库连接字符串（只读访问）
+  # 用于访问新API的原始数据，建议配置只读权限
+  new_api_dsn: "root:4MxxxxxxxxxxxFR@tcp(192.168.0.110:3306)/nano_banana?charset=utf8mb4&parseTime=True&loc=Local"
+
+# Redis缓存配置
+redis:
+  # Redis服务器地址和端口
+  addr: "192.168.0.110:6379"
+  # Redis认证密码
+  password: "6xxxxxxxxu"
+  # Redis数据库编号
+  db: 2
+
+# 速率限制配置
+rate_limit:
+  # 计费查询接口的速率限制（单位：次/分钟）
+  billing_query_limit: 10
+  # 日志查询接口的速率限制（单位：次/分钟）
+  log_query_limit: 20
+
+# 日志文件配置
+log:
+  # 日志文件保留天数
+  retention_days: 30
+
+# 模型映射配置
+# 用于将外部模型名称映射到内部支持的模型
+model_mapping:
+  # 主模型名称
+  "deepseek-chat":
+    # 支持的模型别名列表
+    - "deepseek-chat"
+    - "hs-deepseek-v3-250324"
+
+# 日志系统配置
+logger:
+  # 日志级别：debug, info, warn, error, fatal
+  level: "info"
+  # 日志文件路径
+  filename: "logs/app.log"
+  # 单个日志文件最大大小（MB）
+  maxsize: 100
+  # 保留的旧日志文件最大数量
+  maxbackups: 10
+  # 日志文件保留的最大天数
+  maxage: 30
+  # 是否压缩旧日志文件
+  compress: true
+
+# 对象存储配置
+oss:
+  # 阿里云OSS配置，在阿里云控制台里获取
+  aliyun:
+    # 阿里云访问密钥ID
+    SZ_ALIYUN_ACCESS_ID: "LTAI5tLycAKTsiHNGWhvpK79"
+    # 阿里云访问密钥
+    SZ_ALIYUN_ACCESS_KEY: "anxxxxxAI6p"
+    # OSS存储桶名称
+    SZ_ALIYUN_BUCKET: "mybxxxxer"
+    # OSS服务端点
+    SZ_ALIYUN_ENDPOINT: "oss-cn-xxxxx.aliyuncs.com"
+    # 是否使用SSL/TLS加密连接
+    SZ_ALIYUN_SSL: true
+    # 是否使用自定义域名
+    SZ_ALIYUN_IS_CNAME: false
+    # 是否开启调试模式
+    SZ_ALIYUN_DEBUG: true
+    # 图片存储路径
+    IMG_PATH: "images"
+    # 书籍资源存储路径
+    BOOK_PATH: "resources"
+  
+  # OSS代理服务器配置-不用管
+  oss_proxy_srv:
+    # 代理服务器列表
+    - ip: "172.31.61.26:9701"
+      # 负载均衡权重
+      weight: 100
+
+  # OSS本地缓存目录
+  oss_cache_dir: "/images"
+
+# 注意事项：
+# 1. 所有密码、密钥等敏感信息应使用环境变量或密钥管理服务
+# 2. 生产环境建议使用不同的数据库和Redis实例
+# 3. 速率限制应根据实际业务需求调整
+# 4. 日志配置应根据磁盘空间和合规要求调整

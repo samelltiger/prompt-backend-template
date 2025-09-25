@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Key 管理系统 - 首页</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="/static/index.html" class="logo">API Key 管理系统</a>
+      <ul class="nav-links">
+        <li><a href="/static/index.html" class="active">首页</a></li>
+        <li><a href="/static/pricing.html">价格</a></li>
+        <li><a href="/static/status.html">状态</a></li>
+        <li><a href="/static/redeem.html">兑换码</a></li>
+      </ul>
+      <div id="login-section">
+        <form id="api-key-form" class="form-inline">
+          <input type="text" id="api-key-input" placeholder="输入 API Key" class="form-control">
+          <button type="submit" class="btn btn-primary">绑定</button>
+        </form>
+      </div>
+      <div id="user-section" class="hidden">
+        <span id="user-api-key"></span>
+        <button id="logout-btn" class="btn btn-danger">登出</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id="not-logged-in" class="card">
+      <div class="card-header">
+        <h2 class="card-title">欢迎使用 API Key 管理系统</h2>
+      </div>
+      <div class="card-body">
+        <p>请输入您的 API Key 进行绑定，查看调用日志和费用信息。</p>
+      </div>
+    </div>
+
+    <div id="logged-in" class="hidden">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">令牌信息</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">令牌总额</div>
+            <div class="stat-value" id="total-quota">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">剩余额度</div>
+            <div class="stat-value" id="remaining-quota">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">已用额度</div>
+            <div class="stat-value" id="used-quota">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">有效期至</div>
+            <div class="stat-value" id="expiry-date">--</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">调用日志信息</h2>
+        </div>
+        <div id="logs-loading" class="loading">
+          <div class="loading-spinner"></div>
+        </div>
+        <div id="logs-content" class="hidden">
+          <table>
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>模型</th>
+                <th>用时</th>
+                <th>提示</th>
+                <th>补全</th>
+                <th>花费</th>
+                <th>详情</th>
+              </tr>
+            </thead>
+            <tbody id="logs-table-body">
+              <!-- 日志数据将通过 JavaScript 填充 -->
+            </tbody>
+          </table>
+          <div class="pagination" id="logs-pagination">
+            <!-- 分页将通过 JavaScript 生成 -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/home.js"></script>
+</body>
+</html>
