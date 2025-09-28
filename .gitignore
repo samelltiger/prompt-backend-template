@@ -2,3 +2,4 @@
 internal/api/.DS_Store
 main
 config/config.yaml
+logs/app.log
