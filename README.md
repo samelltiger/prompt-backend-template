@@ -98,6 +98,14 @@ prompt-backend-template/
    - API 文档：http://localhost:9701/api/about
    - 监控指标：http://localhost:9701/metrics
 
+## 其他教程/文章
+[
+3个月变永久！claude code给我写了一套脚本，帮我把网站HTTPS成本降为0](https://mp.weixin.qq.com/s/Yvp7UTLM4w75ILE-yAwIgA)
+
+[Claude Code+Jenkins急速打造网站部署的上线系统](https://mp.weixin.qq.com/s/vjzw9K4TMwSnt-wel-prFg)
+
+[“别再让AI网站丑下去了！”涛哥用Claude code实战MinIO主题移植，效果炸裂！完全去掉AI味！](https://mp.weixin.qq.com/s/3OGKZqAT7-i--Qhl19eu9w)
+
 ## API 接口
 
 ### 认证方式
@@ -226,7 +234,8 @@ model_mapping:
 
 - 项目主页：[https://github.com/samelltiger/prompt-backend-template](https://github.com/samelltiger/prompt-backend-template)
 - 微信：ithulianwang
-- 邮箱：[https://nano-banana.yueshu365.cn/](https://nano-banana.yueshu365.cn/)
+- 公众号： 涛哥AI编程
+- 网站：[https://nano-banana.yueshu365.cn/](https://nano-banana.yueshu365.cn/)
 
 ---
 
